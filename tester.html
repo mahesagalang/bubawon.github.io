@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Popup Kaca</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f2f2f2;
+      }
+
+      .popup-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(
+          255,
+          255,
+          255,
+          0.6
+        ); /* Background dengan transparansi */
+        backdrop-filter: blur(10px); /* Efek kaca */
+        justify-content: center;
+        align-items: center;
+        animation: fadeIn 0.3s ease;
+      }
+
+      .popup-content {
+        background: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        max-width: 600px;
+        width: 100%;
+      }
+
+      .close {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 24px;
+        cursor: pointer;
+        color: #888;
+      }
+
+      button {
+        padding: 10px 20px;
+        font-size: 16px;
+        margin-top: 10px;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <button id="openPopup">Tampilkan Popup</button>
+
+    <div class="popup-overlay" id="popupOverlay">
+      <div class="popup-content">
+        <span class="close" id="closePopup">&times;</span>
+        <h2>Selamat Datang!</h2>
+        <p>Terima kasih telah mengunjungi situs kami.</p>
+        <p>
+          Kami berkomitmen untuk menyajikan pengalaman kuliner terbaik untuk
+          Anda.
+        </p>
+        <button id="closePopupButton">Tutup</button>
+      </div>
+    </div>
+
+    <script>
+      document
+        .getElementById("openPopup")
+        .addEventListener("click", function () {
+          document.getElementById("popupOverlay").style.display = "flex";
+        });
+
+      document
+        .getElementById("closePopup")
+        .addEventListener("click", function () {
+          document.getElementById("popupOverlay").style.display = "none";
+        });
+
+      document
+        .getElementById("closePopupButton")
+        .addEventListener("click", function () {
+          document.getElementById("popupOverlay").style.display = "none";
+        });
+    </script>
+  </body>
+</html>
